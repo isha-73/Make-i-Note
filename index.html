@@ -24,18 +24,24 @@
     </nav>
     <h1 id="head" style="text-align: center; margin: 15px; ">Welcome to Make-i-Notes</h1>
     <div style=" display: flex; justify-content: center;">
-    <div class="card" style="width:800px; display: flex; flex-wrap:wrap; justify-content: center; align-items: center;">
-        <div class="card-body">
-            <h4 class="card-title" style="padding: 10px;">Add Your Notes Here...</h4>
-            <div class="form-floating">
-                <textarea class="form-control" placeholder="Leave a comment here" id="addtxt"
-                    style="height: 80px"></textarea>
+        <div class="card"
+            style="width:800px; display: flex; flex-wrap:wrap; justify-content: center; align-items: center;">
+            <div class="card-body">
+                <div class="form-group">
+                    <h5 class="card-title">Add title</h5>
+                    <input type="text" class="form-control" id="addTitle" aria-describedby="title"
+                        placeholder="Enter title">
+                </div>
+                <h4 class="card-title">Add Note...</h4>
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="addtxt"
+                        style="height: 80px"></textarea>
+                </div>
+                <br>
+                <button class="btn btn-primary" id="addBtn">Add-Note</button>
             </div>
-            <br>
-            <button class="btn btn-primary" id="addBtn">Add-Note</button>
         </div>
     </div>
-</div>
     <hr>
     <h2 style="text-align: center;">Your Notes</h2>
     <hr>
