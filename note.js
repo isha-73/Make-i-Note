@@ -16,7 +16,7 @@ addbtn.addEventListener("click", function (e) {
     let myObj = {
         title: addTitle.value,
         text: addtxt.value
-      }
+    }
     notesObj.push(myObj);
     localStorage.setItem("notes", JSON.stringify(notesObj));
     addtxt.value = '';
@@ -35,12 +35,23 @@ function showNotes() {
     let html = '';
     notesObj.forEach(function (element, index) {
         html += `
-        <div class="noteCard my-2 mx-2 card" style="width:200px; text-align: center;  border-radius: 20px; padding:20px 10px;">
-            <div class="cardBody" id="i${index}">
-                <h5 class="card-title">${index+1}.${element.title}</h5>
+        <div class="noteCard my-2 mx-2 card" style="width:200px; text-align: center; 
+         border-radius: 20px; padding:20px 10px; position: relative;
+         padding: 20px;">
+            <div class="cardBody" id="i${index}" style="padding:20px">
+                <h5 class="card-title">${index + 1}.${element.title}</h5>
                 <p>${element.text}</p>
-               
-                <button id="${index}" onclick="deleteNote(this.id)" class="btn btn-primary" >Delete-Note</button>
+            </div>
+            <div >
+            <button id="${index}" onclick="deleteNote(this.id)" class="btn btn-primary" style=" position: absolute;
+            bottom: 10px;
+            right: 60px;
+            padding: 10px;
+            width:80px;
+            font-size : 10px; 
+            font-weight:bold;
+            background-color:red;
+            border-color:red">Delete-Note</button>
             </div>
         </div>`;
     });
@@ -60,8 +71,11 @@ function deleteNote(index) {
     } else {
         notesObj = JSON.parse(notes);
     }
-    notesObj.splice(index, 1);
-    localStorage.setItem("notes", JSON.stringify(notesObj));
+    let conf= window.confirm("Are you sure?")
+    if(conf){
+            notesObj.splice(index, 1);
+            localStorage.setItem("notes", JSON.stringify(notesObj));
+            showNotes();}
     showNotes();
 }
 let searchtxt = document.getElementById('searchTxt');
