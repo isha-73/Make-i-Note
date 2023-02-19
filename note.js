@@ -35,6 +35,7 @@ function showNotes() {
     let html = '';
     notesObj.forEach(function (element, index) {
         html += `
+
         <div class="noteCard my-2 mx-2 card" style="width:200px; text-align: center; 
          border-radius: 20px; padding:20px 10px; position: relative;
          padding: 20px;">
@@ -54,10 +55,24 @@ function showNotes() {
             border-color:red">Delete-Note</button>
             </div>
         </div>`;
+// =======
+//         <div class="card" style="width: 18rem;">
+//           <div class="card-body">
+//             <h5 class="card-title">${index+1}.${element.title}</h5>
+//             <p class="card-text">${element.text}</p>
+//             <button id="${index}" onclick="deleteNote(this.id)" class="btn btn-danger" >Delete-Note</button>
+//           </div>
+//         </div>
+//         `;
+// >>>>>>> 8853453fd98830ffbf60a655c0fc627ad4fd7fc0
     });
     let notesElm = document.getElementById('notes');
     if (notesObj.length == 0) {
-        notesElm.innerHTML = '<div><b>There is nothing to show.Add your Notes first</b></div>';
+        notesElm.innerHTML = `
+        <div class="alert alert-primary" role="alert">
+          There is nothing to show.Add your Notes first
+        </div>
+        `;
     } else {
         notesElm.innerHTML = html;
     }
